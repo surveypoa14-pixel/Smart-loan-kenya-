@@ -2,156 +2,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#102b50">
-  <title>Smart Loan Kenya | Financial Services</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f7fb;
-      color: #172b45;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #102b50;
-      color: white;
-      padding: 22px 7%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo { font-size: 21px; font-weight: bold; }
-    .logo span { color: #50b9ff; }
-
-    .hero {
-      background: linear-gradient(135deg,#102b50,#1767a9);
-      color: white;
-      padding: 85px 7%;
-      text-align: center;
-    }
-
-    .hero h1 { font-size: 38px; margin-bottom: 15px; }
-    .hero p { max-width: 600px; margin: auto; color: #e0edfa; }
-
-    .container {
-      max-width: 1050px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      box-shadow: 0 3px 15px #102b5010;
-    }
-
-    .card h3 { color: #1767a9; margin-bottom: 10px; }
-
-    .notice {
-      background: #e7f2fc;
-      border-left: 4px solid #1767a9;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 30px;
-    }
-
-    footer {
-      background: #102b50;
-      color: white;
-      text-align: center;
-      padding: 30px 15px;
-      margin-top: 50px;
-    }
-
-    footer p { color: #c5d8eb; font-size: 13px; }
-
-    @media(max-width:600px) {
-      .hero h1 { font-size: 29px; }
-      header { padding: 18px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Loan Kenya</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#172b45}
+header{background:#102b50;color:white;padding:20px 7%;font-size:21px;font-weight:bold}
+.hero{background:linear-gradient(135deg,#102b50,#1767a9);color:white;text-align:center;padding:65px 20px}
+.hero h1{font-size:34px}
+.hero p{line-height:1.7}
+main{max-width:750px;margin:30px auto;padding:20px}
+.card{background:white;padding:25px;border-radius:14px;box-shadow:0 3px 15px #0001;margin-bottom:20px}
+button{background:#1767a9;color:white;border:0;padding:13px 20px;border-radius:7px;font-weight:bold;cursor:pointer}
+input{width:100%;padding:13px;margin:8px 0 15px;border:1px solid #ccd5df;border-radius:7px}
+.status{padding:12px;border-radius:7px;background:#eef3f8;margin-top:15px;overflow-wrap:anywhere}
+footer{text-align:center;padding:25px;color:#65758b}
+</style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">SMART LOAN <span>KENYA</span></div>
-</header>
+<header>SMART LOAN KENYA</header>
 
 <section class="hero">
-  <h1>Welcome to Smart Loan Kenya</h1>
-  <p>
-    A modern financial services brand focused on
-    transparency, responsible finance and accessible
-    financial information.
-  </p>
+<h1>Welcome to Smart Loan Kenya</h1>
+<p>A simple digital financial services platform.</p>
 </section>
 
-<main class="container">
+<main>
+<div class="card">
+<h2>Platform connection</h2>
+<p>Check whether this website can communicate with its Supabase project.</p>
+<button onclick="testConnection()">Test Supabase Connection</button>
+<div class="status" id="status">Waiting for connection test...</div>
+</div>
 
-  <div class="section-title">
-    <h2>Our Services</h2>
-    <p>Explore our financial services information.</p>
-  </div>
-
-  <div class="cards">
-
-    <div class="card">
-      <h3>Personal Finance</h3>
-      <p>Information about personal financial solutions
-      and responsible borrowing.</p>
-    </div>
-
-    <div class="card">
-      <h3>Transparent Terms</h3>
-      <p>Understand applicable charges, interest rates
-      and repayment conditions before making decisions.</p>
-    </div>
-
-    <div class="card">
-      <h3>Customer Support</h3>
-      <p>Get information about our services and
-      available customer support channels.</p>
-    </div>
-
-  </div>
-
-  <div class="notice">
-    <h3>Important Information</h3>
-    <p>
-      This website is currently being established.
-      No loan applications, approvals or payments are
-      being accepted through this website at present.
-      Lending services will only be offered after
-      applicable regulatory requirements are satisfied.
-    </p>
-  </div>
-
+<div class="card">
+<h2>Platform information</h2>
+<p>Smart Loan Kenya is currently being configured.</p>
+<p>Account and application features will be added after the connection is verified.</p>
+</div>
 </main>
 
-<footer>
-  <h3>SMART LOAN KENYA</h3>
-  <p>Finance made accessible.</p>
-  <p>© 2026 Smart Loan Kenya. All rights reserved.</p>
-</footer>
+<footer>© 2026 Smart Loan Kenya</footer>
+
+<script>
+// SUPABASE CONNECTION SETTINGS
+const SUPABASE_URL = "https://cqijjumilcivapdqleai.supabase.co";
+
+// Paste your Supabase PUBLISHABLE key between the quotation marks.
+const SUPABASE_KEY = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2";
+
+// Create Supabase connection
+const db = window.supabase.createClient(
+  SUPABASE_URL,
+  SUPABASE_KEY
+);
+
+// Test the connection
+async function testConnection() {
+  const status = document.getElementById("status");
+
+  if (SUPABASE_KEY === "PASTE_YOUR_PUBLISHABLE_KEY_HERE") {
+    status.textContent = "Please add your Supabase publishable key first.";
+    return;
+  }
+
+  status.textContent = "Testing connection...";
+
+  try {
+    const { error } = await db
+      .from("loan_applications")
+      .select("id")
+      .limit(1);
+
+    if (error) throw error;
+
+    status.textContent = "Supabase connection successful!";
+  } catch (error) {
+    status.textContent = "Connection or database access error: " + error.message;
+  }
+}
+</script>
 
 </body>
-  </html>
-    
+</html>
